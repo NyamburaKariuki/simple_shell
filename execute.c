@@ -1,9 +1,12 @@
 #include "shell.h"
 void execute_command(char **args)
 {
+	pid_t pid_child;
+	int j;
+
         if (args[0] != NULL && strcmp(args[0], "exit") == 0)
         {
-                for (int j = 0; args[j] != NULL; j++)
+                for (j = 0; args[j] != NULL; j++)
                 {
                         free(args[j]);
                 }
@@ -11,7 +14,7 @@ void execute_command(char **args)
                 exit(0);
         }
 
-        pid_t pid_child = fork();
+        pid_child = fork();
 
         if (pid_child == -1)
         {
