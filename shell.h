@@ -2,7 +2,6 @@
 #define SHELL_H
 
 #include <stdio.h>
-#include <stdout.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -22,4 +21,4 @@ char **command_parse(const char *status);
 void sig_int(int sign);
 void signals(void);
 
-#endif //MAIN_H
+#endif /*MAIN_H */

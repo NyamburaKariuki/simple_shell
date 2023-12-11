@@ -3,6 +3,7 @@
 int main(void)
 {
         char *status = malloc(120), *str;
+	char **args;
         signals();
 
         while(1)
@@ -16,7 +17,7 @@ int main(void)
                         exit(0);
                 }
 
-                char **args = command_parse(str);
+                args = command_parse(str);
                 execute_command(args);
 
                 free(args[0]);

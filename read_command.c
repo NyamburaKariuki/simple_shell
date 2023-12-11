@@ -16,5 +16,4 @@ char *read_command_display(char *status, size_t position)
         }
         status[strcspn(status, "\n")] = '\0';
         return (status);
-}
-~  
+}  
