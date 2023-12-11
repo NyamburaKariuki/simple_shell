@@ -6,7 +6,7 @@
  *Return: Always 0 (Success)
  */
 
-char **comand_parse(const char *status)
+char **command_parse(const char *status)
 {
 	char **args;
 	args = malloc(2 * sizeof(char *));
