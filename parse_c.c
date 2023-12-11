@@ -9,6 +9,7 @@
 char **command_parse(const char *status)
 {
 	char **args;
+
 	args = malloc(2 * sizeof(char *));
 	args[0] = strdup(status);
 	args[1] = NULL;
