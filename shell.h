@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <signal.h>
 #include <sys/wait.h>
+#include <stdarg.h>
 
 #define TOKEN_DELIM "\t\n\r\a"
 

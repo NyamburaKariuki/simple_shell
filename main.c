@@ -18,11 +18,13 @@ int main(void)
 		if (strcmp(str, "exit") == 0)
 		{
 			free(status);
+			free(str);
 			exit(0);
 		}
 
 		args = command_parse(str);
 		execute_command(args);
+		free(str);
 		free(args[0]);
 		free(args);
 	}
