@@ -21,5 +21,9 @@ void execute_command(char **args);
 char **command_parse(const char *status);
 void sig_int(int sign);
 void signals(void);
+unsigned int _strspn(char *str, char *acc);
+int _strcmp(char *str1, char *str2);
+char *_strdup(char *s);
+int _strlen(char *str);
 
 #endif /*MAIN_H */
