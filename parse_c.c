@@ -12,6 +12,7 @@ char **command_parse(const char *status)
 
 	args = malloc(2 * sizeof(char *));
 	args[0] = strdup(status);
+	/*args[0] = _strdup(status);*/
 	args[1] = NULL;
 	return (args);
 }
