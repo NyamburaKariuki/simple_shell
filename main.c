@@ -15,7 +15,8 @@ int main(void)
 		show_display();
 		str = read_command_display(status, 119);
 
-		if (strcmp(str, "exit") == 0)
+		/*if (strcmp(str, "exit") == 0)*/
+		if (_strcmp(str, "exit") == 0)
 		{
 			free(status);
 			free(str);
