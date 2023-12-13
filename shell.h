@@ -14,7 +14,7 @@
 
 void show_display(void);
 void show_prompt(void);
-void show_print(const char *context);
+void show_print(const char *context, ...);
 void s_error(const char *error);
 char *read_command_display(char *status, size_t position);
 void execute_command(char **args);
