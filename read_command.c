@@ -11,7 +11,7 @@ char *read_command_display(char *status, size_t position)
 	{
 		if (feof(stdin))
 		{
-			show_print("\n ");
+			show_print("File Ends\n ");
 			exit(0);
 		}
 		else

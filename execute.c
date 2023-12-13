@@ -7,9 +7,7 @@
  */
 void execute_command(char **args)
 {
-	pid_t pid_child;
-
-	pid_child = fork();
+	pid_t pid_child = fork();
 
 	if (pid_child == -1)
 	{
