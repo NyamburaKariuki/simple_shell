@@ -11,12 +11,12 @@ char *read_command_display(char *status, size_t position)
 	{
 		if (feof(stdin))
 		{
-			s_error("File Ends");
+			show_print("\n ");
 			exit(0);
 		}
 		else
 		{
-			s_error("Reading input Error\n");
+			show_print("Reading input Error\n");
 			exit(1);
 		}
 	}
