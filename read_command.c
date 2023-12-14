@@ -1,26 +1,33 @@
 #include "shell.h"
+
 /**
- * read_command_display - reads the display command
- * @status: points to the display command
- * @position: position
- * Return: returns status
+ * execute_file_cmd - function to excute commands of a file
+ * @ar: parameters in a program
+ * @ev: variables in a given environment
+ * @code: interaction mode(0)
+ * Return: 0 if a file is present
  */
-char *read_command_display(char *status, size_t position)
+int execute_file_cmd(char **ar, char **ev, int code)
 {
-	if (fgets(status, position, stdin) == NULL)
+	char buff[1024];
+	FILE *fd;
+	int size;
+
+	fd = fopen(ar[1], "r");
+	if (!fd)
 	{
-		if (feof(stdin))
-		{
-			show_print("File Ends\n ");
-			exit(0);
-		}
-		else
-		{
-			show_print("Reading input Error\n");
-			exit(1);
-		}
+		printf("%s does not exist\n", ar[1]);
+		exit(2);
 	}
-	/*status[strcspn(status, "\n")] = '\0';*/
-	status[_strspn(status, "\n")] = '\0';
-	return (status);
+	while (fgets(buff, 255, fd) != NULL)
+	{
+		size = (int) strlen(buff);
+		if (buff[0] == '\n')
+			continue;
+		if (buff[size - 1] == '\n')
+			buff[size - 1] = '\0';
+		chain_command(buff, ar, ev, code);
+	}
+	fclose(fd);
+	return (0);
 }
