@@ -1,31 +1,27 @@
 #include "shell.h"
+
 /**
- * main - main entry file
- * @void: has no parameters
- * Return: returns 0
+ * main - entry point
+ * @argc: argument count
+ * @argv: argument vector
+ * @ev: variables
+ *
+ * Return: 0 indicating success
  */
-int main(void)
+int main(int argc, char **argv, char **ev)
 {
-	char *status = malloc(120), *str;
-	char **args;
+	int view = 0;
 
-	signals();
-	while (1)
+	if (argc == 2)
 	{
-		show_display();
-		str = read_command_display(status, 119);
-
-		if (_strcmp(str, "exit") == 0)
-		{
-			free(status);
-			free(str);
-			exit(0);
-		}
-		args = command_parse(str);
-		execute_command(args);
-		free(str);
-		free(args[0]);
-		free(args);
+		return (execute_file_cmd(argv, ev, view));
 	}
+	while (isatty(0))
+	{
+		view = 1;
+		_int(argv, ev, view);
+	}
+
+	non_int(argv, ev, view);
 	return (0);
 }
