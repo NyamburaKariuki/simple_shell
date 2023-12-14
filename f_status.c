@@ -2,8 +2,8 @@
 
 /**
  * _status - function to check availability of the path
- * @cmd: command 
- * Return: 0 or -1 
+ * @cmd: command
+ * Return: 0 or -1
  */
 int _status(char *cmd)
 {
