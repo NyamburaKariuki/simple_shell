@@ -1,29 +1,38 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <signal.h>
+#include <stdio.h>
 #include <sys/wait.h>
-#include <stdarg.h>
+#include <sys/stat.h>
+#include <sys/errno.h>
+#include <dirent.h>
+#include <string.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <unistd.h>
 
-#define TOKEN_DELIM "\t\n\r\a"
 
-void show_display(void);
-void show_prompt(void);
-void show_print(const char *context, ...);
-void s_error(const char *error);
-char *read_command_display(char *status, size_t position);
-void execute_command(char **args);
-char **command_parse(const char *status);
-void sig_int(int sign);
-void signals(void);
-unsigned int _strspn(char *str, char *acc);
-int _strcmp(char *str1, char *str2);
-char *_strdup(char *s);
-int _strlen(char *str);
+int run_command(char *s, char **va, char **ev, int status);
+void chain_command(char *s, char **va, char **ev, int status);
+char *run_prompt(void);
+int execute_cmd(char *ex, char **argv, char **ev);
+int execute_file_cmd(char **ar, char **ev, int code);
+int environment_vars(char **ev);
+void string_exit(char *st, char **arv);
+int s_c_check(char *st);
+int hash_tag(char *st);
+int builtin_exec(char **argv, char **ar, char **environ);
+int print_c(char c);
+char *get_ev(char *nm, char **_env);
+char *exec_path(char *dirct, char *ex);
+char **_parse(char *s, char *del);
+void non_int(char **va, char **ev, int view);
+void _int(char **ar, char **ev, int view);
+char *display_p(void);
+void free_str(char **s);
+void free_arr(char **s);
+int _status(char *cmd);
+int check_built(char *_command);
 
 #endif /*MAIN_H */
