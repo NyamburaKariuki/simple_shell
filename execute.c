@@ -1,9 +1,8 @@
 #include "shell.h"
 /**
- * execute_command - executes the command
+ * execute_command - executes command
  * @args: arguments
- * @program: points to the program
- * Return: returns argumrnt
+ * Return: returns argument
  */
 void execute_command(char **args)
 {
