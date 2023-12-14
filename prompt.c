@@ -1,10 +1,23 @@
 #include "shell.h"
 /**
- *show_prompt - function to show the prompt of a shell
- *Return: Always 0 (Success)
+ *run_prompt - function to show the prompt of a shell
+ *Return: pointer or Null
  */
-void show_prompt(void)
+char *run_prompt(void)
 {
-	show_print("shell $ ");
-}
+	char buffer[512], *s;
 
+	write(1, "(shell$) ", 4);
+
+	if (fgets(buffer, 511, stdin) != NULL)
+	{
+		s = malloc(sizeof(char) * (strlen(buffer) + 1));
+		if (!s)
+			exit(0);
+		strcpy(s, buffer);
+		return (s);
+	}
+
+	print_c('\n');
+	exit(0);
+}
