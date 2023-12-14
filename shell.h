@@ -16,7 +16,7 @@
 int run_command(char *s, char **va, char **ev, int status);
 void chain_command(char *s, char **va, char **ev, int status);
 char *run_prompt(void);
-int execute_cmd(char *ex, char **argv, char **ev);
+int execute_cmd(char *exe, char **argv, char **ev);
 int execute_file_cmd(char **ar, char **ev, int code);
 int environment_vars(char **ev);
 void string_exit(char *st, char **arv);

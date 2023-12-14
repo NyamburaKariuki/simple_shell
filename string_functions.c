@@ -46,4 +46,19 @@ int _catoi(char *str)
 	p *= y;
 	return (p);
 }
-
+/**
+ *schar - function that checks a character in a string
+ * @str: string to check
+ * @chr: character to check
+ * Return: pointer to char
+ */
+char *schar(char *str, char chr)
+{
+	do {
+		if (*str == chr)
+		{
+			break;
+		}
+	} while (*str++);
+	return (str);
+}

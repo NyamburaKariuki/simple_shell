@@ -1,26 +1,29 @@
 #include "shell.h"
 /**
- * execute_command - executes command
- * @args: arguments
- * Return: returns argument
+ *execute_cmd -funtion that executes command
+ *@exe: executable file path
+ *@argv: argument vector
+ *@ev: environemnt and it's variables
+ * Return: returns 0 or -1
  */
-void execute_command(char **args)
+int execute_cmd(char *exe, char **argv, char **ev)
 {
-	pid_t pid_child = fork();
+	pid_t pid_child;
+	int view, res = 0;
 
+	pid_child = fork();
 	if (pid_child == -1)
 	{
-		show_print("forking error\n");
-		exit(1);
+		perror("Fork failed\n");
+		res = -1;
 	}
-	else if (pid_child == 0)
+	if (pid_child == 0)
 	{
-		execvp(args[0], args);
-		show_print("%s: command not found\n", args[0]);
-		exit(1);
+		res = execve(ex, argv, ev);
 	}
 	else
 	{
-		wait(NULL);
+		wait(&view);
 	}
+	return (res);
 }
