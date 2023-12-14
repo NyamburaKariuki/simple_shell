@@ -19,7 +19,7 @@ int execute_cmd(char *exe, char **argv, char **ev)
 	}
 	if (pid_child == 0)
 	{
-		res = execve(ex, argv, ev);
+		res = execve(exe, argv, ev);
 	}
 	else
 	{

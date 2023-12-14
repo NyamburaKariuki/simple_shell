@@ -22,9 +22,9 @@ int run_command(char *s, char **va, char **ev, int status)
 		free(argv);
 		return (0);
 	}
-	else if (check_bltn(argv[0]))
+	else if (check_built(argv[0]))
 	{
-		res = execute_bltn(argv, va, ev);
+		res = builtin_exec(argv, va, ev);
 		return (res);
 	}
 	else

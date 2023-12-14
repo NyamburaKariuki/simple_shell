@@ -7,7 +7,7 @@ char *run_prompt(void)
 {
 	char buffer[512], *s;
 
-	write(1, "(shell$) ", 4);
+	write(1, " shell$ ", 7);
 
 	if (fgets(buffer, 511, stdin) != NULL)
 	{
